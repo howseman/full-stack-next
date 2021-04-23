@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import errorHandler from '../../api/lib/errorHandler'
+import { sendErrorResponse } from '../../api/lib/errorHandler'
+import helloRouteParamsValidator from '../../api/route-validators/hello.validator'
 import helloService from '../../api/services/hello.service'
 
 /**
@@ -9,19 +10,14 @@ import helloService from '../../api/services/hello.service'
 export default async function(req: NextApiRequest, res: NextApiResponse) {
   switch (req.method) {
     case 'GET':
-      // Prepare the arguments to be passed to services
-      const {
-        query: { id, name },
-      } = req
-
       try {
-        const result = await helloService.sayHi({
-          id: Number.parseInt(id.toString(), 10),
-          name: name.toString(),
-        })
+        // Prepare the arguments to be passed to services
+        const { id, name } = await helloRouteParamsValidator.get(req)
+
+        const result = await helloService.sayHi({ id, name })
         return res.status(200).json(result)
       } catch (error) {
-        return errorHandler.handleError(error, req, res)
+        return sendErrorResponse(error, req, res)
       }
     case 'PUT':
       // Update or create data in your database
