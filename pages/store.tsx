@@ -12,7 +12,6 @@ export default function StorePage(props) {
 
   return (
     <>
-      <h1>Store Page</h1>
       <pre>{JSON.stringify(products, null, 2)}</pre>
     </>
   )
