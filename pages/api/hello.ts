@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { sendErrorResponse } from '../../api/lib/errorHandler'
-import helloRouteParamsValidator from '../../api/route-validators/hello.validator'
-import helloService from '../../api/services/hello.service'
+import { sendErrorResponse } from 'api/lib/errorHandler'
+import helloRouteParamsValidator from 'api/route-validators/hello.validator'
+import helloService from 'api/services/hello.service'
 
 /**
  * This function basically acts as a route handler (so far...)

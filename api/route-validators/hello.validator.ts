@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import Joi from 'joi'
-import { CustomError } from '../lib/CustomError'
-import { HttpStatusCode } from '../lib/httpStatusCode'
+import { CustomError } from 'api/lib/CustomError'
+import { HttpStatusCode } from 'api/lib/httpStatusCode'
 
 const helloRouteParamsValidator = {
   async get(req: NextApiRequest): Promise<{ id: number, name: string } | Error> {
