@@ -3,7 +3,7 @@ import { blue, green } from '@material-ui/core/colors'
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: 'Nunito, Ubuntu, "Segoe UI"',
+    fontFamily: 'Nunito, Ubuntu, \'Segoe UI\'',
   },
   palette: {
     primary: {
